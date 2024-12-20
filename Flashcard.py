@@ -2,6 +2,7 @@
 
 import os
 import google.generativeai as genai 
+import streamlit as st
 
 from dotenv import load_dotenv
 from GPT_Interaction_SeparateInstances import generate_flashcards_twoparts
@@ -19,6 +20,10 @@ def main():
     #Access API key enviroment variable and put into gemini 
     load_dotenv() 
     genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY')) 
+    print('successfully loaded api key...')
+
+    #Access API key from streamlit secrets
+    genai.configure(api_key=st.secrets["api_key"]) 
     print('successfully loaded api key...')
 
     #read script
