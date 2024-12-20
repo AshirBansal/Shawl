@@ -16,7 +16,7 @@ from Create_Anki_CSV import create_anki_csv
 #from google.protobuf import struct_pb2
 #from GPT_Interaction_Chat import generate_flashcards
 
-def main():
+def main(script_content, topic):
     #Access API key enviroment variable and put into gemini 
     #load_dotenv() 
     #genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY')) 
@@ -27,14 +27,14 @@ def main():
     print('successfully loaded api key...')
 
     #read script
-    with open("26_Sugammadex.txt", "r") as f:
-        script_content = f.read()
-    print('successfully loaded podcast script...')
+    #with open("26_Sugammadex.txt", "r") as f:
+        #script_content = f.read()
+    #print('successfully loaded podcast script...')
 
     #generate flashcards
     flashcards = generate_flashcards_twoparts(
             script=script_content, 
-            topic="Sugammadex",
+            topic=topic,
             temperature=0.2,
             max_output_tokens=8000,
             revision_temperature=0.3)
