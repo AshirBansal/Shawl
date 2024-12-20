@@ -18,9 +18,9 @@ from Create_Anki_CSV import create_anki_csv
 
 def main():
     #Access API key enviroment variable and put into gemini 
-    load_dotenv() 
-    genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY')) 
-    print('successfully loaded api key...')
+    #load_dotenv() 
+    #genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY')) 
+    #print('successfully loaded api key...')
 
     #Access API key from streamlit secrets
     genai.configure(api_key=st.secrets["api_key"]) 
